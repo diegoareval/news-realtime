@@ -2,7 +2,6 @@ import React from "react";
 import "./modal.css";
 
 const Modal = ({ data, show, onHide }) => {
-  console.log(data);
   return (
     <React.Fragment>
       {show && (

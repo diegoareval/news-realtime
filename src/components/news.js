@@ -11,7 +11,7 @@ const News = ({ news, handleChange, value, setStartDate, startDate }) => {
   const [show, setShow] = useState(false);
   const [selectedItem, selectItem] = useState(null);
   const handleClick = (item) => {
-    console.log(item);
+    if(show) return;
     setShow(true);
     selectItem(item);
   };
