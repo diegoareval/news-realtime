@@ -9,5 +9,5 @@ In the project directory, you can run:
 ### `yarn start`
 
 # Por hacer
-2. Modal to Show details
-2. Paginate the information
+1. Paginate the information
+2. Improve design
