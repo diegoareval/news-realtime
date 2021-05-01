@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Footer from "../layout/footer";
 import Aside from "./aside";
 import New from "./item";
@@ -6,10 +6,13 @@ import Modal from "../modal/modal";
 import "./news.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useOnClickOutside from "../hooks/useClickOut";
 
 const News = ({ news, handleChange, value, setStartDate, startDate }) => {
   const [show, setShow] = useState(false);
   const [selectedItem, selectItem] = useState(null);
+  const myRef = useRef()
+  useOnClickOutside(myRef, () => hide())
   const handleClick = (item) => {
     if(show) return;
     setShow(true);
@@ -59,7 +62,9 @@ const News = ({ news, handleChange, value, setStartDate, startDate }) => {
         <Aside />
       </section>
       <Footer />
+      <div ref={myRef} >
       <Modal show={show} onHide={() => hide()} data={selectedItem} />
+      </div>
     </>
   );
 };
