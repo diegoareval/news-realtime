@@ -5,8 +5,9 @@ import News from "./components/news";
 function App() {
   const [news, setNews] = useState([]);
   const [query, setQuery] = useState("news");
+  const [startDate, setStartDate] = useState(new Date());
   useEffect(() => {
-    fetchNews(query).then((response) => {
+    fetchNews(query, startDate).then((response) => {
       if (response.news) {
         const {
           news: { articles },
@@ -14,10 +15,10 @@ function App() {
         setNews(articles);
       }
     });
-  }, [query]);
+  }, [query, startDate]);
   return (
     <>
-      <News news={news} handleChange={setQuery} value={query} />
+      <News news={news} handleChange={setQuery} value={query} setStartDate={setStartDate} startDate={startDate} />
     </>
   );
 }
